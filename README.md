@@ -1,1 +1,1 @@
-# smart-agriculture-information-system-sais
+# Smart Agriculture Information System (SAIS)
