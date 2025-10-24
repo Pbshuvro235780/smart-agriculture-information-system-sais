@@ -1,0 +1,32 @@
+CREATE DATABASE IF NOT EXISTS sais_db;
+USE sais_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(100) NOT NULL,
+    mobile VARCHAR(20) NOT NULL UNIQUE,
+    nid VARCHAR(50) NOT NULL,
+    village VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS offers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    farmer VARCHAR(100) NOT NULL,
+    crop VARCHAR(100) NOT NULL,
+    quantity DECIMAL(10,2) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS community (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (fullname, mobile, nid, village, password)
+VALUES ('Test Farmer', '01710000000', '1234567890', 'Dhaka', 
+        '$2y$10$u7vUHVjfwU2jaIGv.Kf2Ye0hSnCNE3Uu7B/Zpk4fKv8aZTOMxwK9u');
